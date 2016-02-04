@@ -7,8 +7,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@album = current_user.albums.build
 		@albums = current_user.albums
+		
 	end
 
 	def new

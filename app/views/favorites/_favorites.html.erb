@@ -1,0 +1,13 @@
+<div id="favorite_form-<%=album.id%>">
+<%- unless current_user.favorites.exists?(album: album) -%>
+	<%= form_for(current_user.favorites.build, remote: true) do |f| %>
+		<div><%= hidden_field_tag :album_id, album.id %></div>
+		<%= f.submit "Favorite", class: "btn btn-primary" %>
+	<% end %>
+<%- else -%>
+	<%= form_for(current_user.favorites.find_by(album: album), html: { method: :delete }, remote: true) do |f| %>
+		<div><%= hidden_field_tag :album_id, album.id %></div>
+		<%= f.submit "Unfavorite", class: "btn" %>			
+	<% end %>
+<%- end -%>
+</div>

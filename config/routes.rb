@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'favorites/index'
+
   root 'home#index'
 
   get 'signup' => 'users#new'
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users, except: :new
-
+  resources :favorites
   resources :albums
 
  

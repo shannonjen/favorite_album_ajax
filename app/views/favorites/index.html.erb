@@ -1,0 +1,8 @@
+<h1>Your Favorite Albums</h1>
+<ul>
+	<% @albums.each do |album| %>
+		<li>
+		<%= link_to album.title, album %>
+		</li>
+	<% end %>
+</ul>
